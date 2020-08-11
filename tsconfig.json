@@ -12,6 +12,12 @@
     },
     {
       "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/mat-datepicker/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/mat-datepicker/tsconfig.spec.json"
     }
 ]
 }

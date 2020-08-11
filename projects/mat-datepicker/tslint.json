@@ -1,0 +1,17 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      "matDatepicker",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "mat-datepicker",
+      "kebab-case"
+    ]
+  }
+}

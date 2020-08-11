@@ -1,0 +1,13 @@
+{
+  "name": "mat-datepicker",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^10.0.6",
+    "@angular/core": "^10.0.6",
+    "moment": "^2.27.0",
+    "moment-timezone": "^0.5.31"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}
