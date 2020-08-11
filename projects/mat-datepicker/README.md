@@ -1,24 +1,119 @@
-# MatDatepicker
+# Material DatePicker by Siriwasan, Original by CoachCare
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.6.
+Fork of the official Material Datepicker for Angular v6 with timepicker support.
 
-## Code scaffolding
+The datepicker allows users to enter a date either through text input, or by choosing a date from the calendar.
+It is made up of several components and directives that work together.
 
-Run `ng generate component component-name --project mat-datepicker` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project mat-datepicker`.
-> Note: Don't forget to add `--project mat-datepicker` or else it will be added to the default project in your `angular.json` file. 
+Further documentation can be found at the official docs:
+https://material.angular.io/components/datepicker/overview
 
-## Build
+```
+<mat-form-field>
+  <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+```
 
-Run `ng build mat-datepicker` to build the project. The build artifacts will be stored in the `dist/` directory.
+The `mat-datepicker` has the following _input_ parameters:
 
-## Publishing
+- `startAt`: start Date/Moment, otherwise the current selected value
+- `type`: `date | datetime | time` output type and available views. default: date
+- `startView`: `clock | month | year | years` initial view to load. default: month
+- `clockStep`: interval to use in the clock view. default: 1
+- `twelveHour`: whether to use 12 or 24 hrs format. default: false
+- `touchUi`: calendar UI mode. default: true (recommended)
+- `disabled`: whether the datepicker pop-up should be disabled
+- `matDatepicker`: whether the datepicker is connected to a date type one
 
-After building your library with `ng build mat-datepicker`, go to the dist folder `cd dist/mat-datepicker` and run `npm publish`.
+and the `input[matDatepicker]` has the _output_:
 
-## Running unit tests
+- `dateChange`: Emits when a `change` event is fired on this `<input>`.
+- `dateInput`: Emits when a `input` event is fired on this `<input>`.
 
-Run `ng test mat-datepicker` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Installation
 
-## Further help
+As usual run `yarn add @siriwasan/mat-datepicker` or `npm install @siriwasan/mat-datepicker`.
+This module requires `moment` and `moment-timezone` for the MomentDateAdapter.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Now add the modules to your Angular Module:
+
+```
+import { MatDatepickerModule, MatMomentDateModule } from '@siriwasan/mat-datepicker';
+
+@NgModule({
+  imports: [
+    MatDatepickerModule,
+    MatMomentDateModule,
+    ...
+  ],
+  ...
+})
+export class AppModule {}
+```
+
+**Note** that the `MatDatepickerModule` can be loaded into feature modules,
+but it requires the providers given by `MatMomentDateModule`,
+so it's recommended to be imported in your root Module.
+
+## Styling
+
+This module supports the Angular Material prebuilt themes that can be included in `angular.json`:
+
+```
+"styles": [
+  "node_modules/@siriwasan/mat-datepicker/prebuilt-themes/indigo-pink.css",
+  ...
+],
+```
+
+available themes are `deeppurple-amber`, `indigo-pink`, `pink-bluegrey` and `purple-green`.
+
+You can use your customized Material Theme as usual:
+
+```
+@import '~@siriwasan/mat-datepicker/theming';
+
+@include mat-datepicker-theme($theme);
+```
+
+Also, the primary color can be customized with CSS variables. The required ones are:
+
+```
+body {
+  --bg-dialog: white;
+  --primary: rgba(73, 200, 242, 1);
+  --primary-contrast: #fff;
+  --primary-a60: rgba(73, 200, 242, 0.6);
+  --primary-a80: rgba(73, 200, 242, 0.8);
+}
+```
+
+## Date Formats Customization
+
+This fork uses an extended set of DateFormats,
+so please check [this file](https://github.com/selvera/npm-datepicker/blob/master/datepicker/src/lib/moment-adapter/moment-date-formats.ts#L11) if you're building your own.
+
+## Usage Examples
+
+### DateTime picker (year, month, date and clock views)
+
+```
+<mat-datepicker type="datetime" clockStep="5" #pickerStart></mat-datepicker>
+```
+
+### DateTime picker (starting on the clock view)
+
+```
+<mat-datepicker type="datetime" startView="clock" #startPicker></mat-datepicker>
+```
+
+### Time picker (clock views, with 5 minutes jump)
+
+```
+<mat-datepicker type="time" clockStep="5" #timeStart></mat-datepicker>
+```
+
+Enjoy!
+# mat-datepicker-library

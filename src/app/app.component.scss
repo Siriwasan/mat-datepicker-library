@@ -1,0 +1,21 @@
+.app-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.app-detail-content {
+  padding: 16px;
+}
+
+.app-version-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: 16px 0;
+}
+
+.app-version-content > div {
+  margin-right: 16px;
+}
