@@ -1,6 +1,20 @@
 {
   "name": "mat-datepicker",
-  "version": "0.0.2",
+  "version": "0.0.4",
+  "description": "Angular Material Datepicker Fork with Timepicker by Siriwasan, Original by CoachCare",
+  "keywords": [
+    "coachcare",
+    "siriwasan",
+    "frontend",
+    "datetimepicker"
+  ],
+  "author": "Siriwasan Akanitthapichat",
+  "homepage": "https://github.com/Siriwasan/mat-datepicker-library",
+  "license": "MIT",
+  "repository": "https://github.com/Siriwasan/mat-datepicker-library.git",
+  "bugs": {
+    "url": "https://github.com/Siriwasan/mat-datepicker-library/issues"
+  },
   "peerDependencies": {
     "@angular/common": "^10.0.6",
     "@angular/core": "^10.0.6",
@@ -9,5 +23,13 @@
   },
   "dependencies": {
     "tslib": "^2.0.0"
-  }
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "main": "dist/mat-datepicker/bundles/mat-datepicker.umd.js",
+  "module": "dist/esm5/mat-datepicker.js",
+  "es2015": "dist/mat-datepicker/esm2015/mat-datepicker.js",
+  "typings": "dist/mat-datepicker/mat-datepicker.d.ts",
+  "metadata": "dist/mat-datepicker/mat-datepicker.metadata.json"
 }
